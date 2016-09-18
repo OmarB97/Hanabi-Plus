@@ -1,0 +1,33 @@
+package com.example.omarbaradei.hanabi;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class TitleScreen extends AppCompatActivity {
+
+    Button startGameBtn;
+    TextView hanabiTitle;
+    ImageView fireworks;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_title_screen);
+        startGameBtn = (Button) findViewById(R.id.startButton);
+        hanabiTitle = (TextView) findViewById(R.id.titleScreen);
+        fireworks = (ImageView) findViewById(R.id.fireworks);
+
+        startGameBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TitleScreen.this, JoinPlayers.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
